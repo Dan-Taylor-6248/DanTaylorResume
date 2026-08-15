@@ -1,0 +1,10 @@
+{
+  "name": "dan-taylor-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dan Taylor's personal resume and portfolio site",
+  "scripts": {
+    "build": "echo \"No build step required\"",
+    "test": "echo \"No tests specified\" && exit 0"
+  }
+}
