@@ -353,6 +353,16 @@ footer a:hover {
     margin: 0;
 }
 
+.languages-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.languages-row .education-item {
+    margin: 30px 0 0;
+}
+
 /* FOOTER
 --------------------------------------------*/
 footer {
