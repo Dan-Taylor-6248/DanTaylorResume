@@ -20,7 +20,7 @@ html {
 
 }
 
-html, body {
+html {
     height: 100%;
 }
 
@@ -70,15 +70,23 @@ footer a:hover {
     color: #3c8453;
 }
 
+nav[role="navigation"] {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #f7f3ef;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
 .navbar {
 
     /*background-color: white;*/
     background-color: #f7f3ef;
     list-style-type: none;
-    /* margin: 0; */
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0;
     padding: 0;
     text-align: right;
     border: 2px solid green;
@@ -138,6 +146,7 @@ footer a:hover {
     /*background: url(../images/bg-home-office-studio.jpg) no-repeat;*/
     background: url(../images/lj-office-desk-crop.jpg) no-repeat;
     background-size: cover;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -371,16 +380,34 @@ footer {
     /* background: #222; */
     /* color: #d3d4d6; */
     color: #222222;
-    margin-left: 5px;
-    margin-right: 5px;
-    /* margin-bottom: 5px; */
+    padding: 5px;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    z-index: 100;
     /* display: inline-block; */
     /* vertical-align: middle; */
+}
+
+main {
+    padding-bottom: 160px;
+}
+
+@media screen and (min-width: 860px) {
+    main {
+        padding-bottom: 90px;
+    }
 }
 
 .myfooter {
     border: 2px solid green;
 }
+
+footer p {
+    margin: 0;
+}
+
 .socials {
     padding: 0;
     margin-right: 20px;
@@ -398,7 +425,7 @@ footer {
     footer {
         display: flex;
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 5px 20px;
     }
 }
 
@@ -419,14 +446,85 @@ footer {
     font-family: "Courier New", Courier, monospace;
   } */
 
-/* MORE Page
+/* SKILLS Page
 --------------------------------------------*/
-.more header::before {
+.skills header::before {
     background: url(../images/tech-banner-4.jpg) center;
     background-size: cover;
     content: "";
     display: block;
     height: 375px;
+}
+
+.skills-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 40px;
+}
+
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.4rem;
+}
+
+.skills-table th,
+.skills-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #d3d4d6;
+    vertical-align: top;
+}
+
+.skills-table th {
+    background: #3c8453;
+    color: #f6f6f6;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.skills-table tbody tr:nth-child(even) {
+    background: rgb(211 212 214 / 0.25);
+}
+
+.skills-table td:first-child,
+.skills-table th:first-child {
+    white-space: nowrap;
+}
+
+.skills-table td:nth-child(2),
+.skills-table th:nth-child(2) {
+    white-space: nowrap;
+}
+
+.proficiency {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.proficiency-expert {
+    background: #3c8453;
+    color: #f6f6f6;
+}
+
+.proficiency-advanced {
+    background: #bcaa96;
+    color: #222222;
+}
+
+.proficiency-intermediate {
+    background: #d3d4d6;
+    color: #222222;
+}
+
+.proficiency-beginner {
+    background: #f6f6f6;
+    color: #222222;
+    border: 1px solid #d3d4d6;
 }
 
 .container {
