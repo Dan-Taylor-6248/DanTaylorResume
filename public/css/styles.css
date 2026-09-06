@@ -200,6 +200,7 @@ nav[role="navigation"] {
     top: 12px;
     left: 10px;
     font-size: 1.5rem;
+    z-index: 200;
 }
 
 @media  screen and (max-width: 1350px) {
