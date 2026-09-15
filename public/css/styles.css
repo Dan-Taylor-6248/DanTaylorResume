@@ -40,16 +40,26 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 7rem;
+    font-size: 5rem;
     line-height: 0.85;
 }
 
 h2 {
-    font-size: 3.6rem;
+    font-size: 2.6rem;
 }
 
 h3 {
     font-size: 2.4rem;
+}
+
+@media screen and (min-width: 601px) {
+    h1 {
+        font-size: 7rem;
+    }
+
+    h2 {
+        font-size: 3.6rem;
+    }
 }
 
 /* links */
@@ -89,7 +99,7 @@ nav[role="navigation"] {
     margin: 0;
     padding: 0;
     text-align: right;
-    border: 2px solid green;
+    flex-grow: 1;
     padding-top: 10px;
     padding-right: 70px;
     padding-bottom: 10px;
@@ -99,6 +109,76 @@ nav[role="navigation"] {
 
 .navbar > li {
     display: inline-block;
+}
+
+/* Mobile nav toggle
+   The toggle button is hidden by default in HTML (progressive
+   enhancement: no-JS visitors just get the full list, always shown).
+   js/nav.js reveals it and takes over collapsing .navbar on small
+   screens; above the breakpoint the toggle stays hidden and .navbar
+   is forced visible regardless of its hidden state. */
+.nav-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .nav-toggle:not([hidden]) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+        background: none;
+        border: 1px solid #3c8453;
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font: inherit;
+        font-size: 1.3rem;
+        color: #222222;
+    }
+
+    .nav-toggle-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .nav-toggle-bar {
+        width: 20px;
+        height: 2px;
+        background: #222222;
+        display: block;
+    }
+
+    .navbar {
+        display: block;
+        text-align: left;
+        border: none;
+        padding: 10px;
+        margin-top: 10px;
+        word-spacing: normal;
+        flex-basis: 100%;
+    }
+
+    .navbar[hidden] {
+        display: none;
+    }
+
+    .navbar > li {
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid #d3d4d6;
+    }
+
+    .navbar > li:last-child {
+        border-bottom: none;
+    }
+}
+
+@media screen and (min-width: 651px) {
+    .navbar[hidden] {
+        display: block;
+    }
 }
 
 .giphy-button {
@@ -134,8 +214,14 @@ nav[role="navigation"] {
 
 .content-wrapper {
     margin: 0 auto;
-    padding: 30px;
+    padding: 10px;
     max-width: 900px;
+}
+
+@media screen and (min-width: 651px) {
+    .content-wrapper {
+        padding: 30px;
+    }
 }
 
 
@@ -144,11 +230,17 @@ nav[role="navigation"] {
 --------------------------------------------*/
 .home {
     /*background: url(../images/bg-home-office-studio.jpg) no-repeat;*/
-    background: url(../images/lj-office-desk-crop.jpg) no-repeat;
+    background: url(../images/lj-office-desk-crop-800.jpg) no-repeat;
     background-size: cover;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+    .home {
+        background-image: url(../images/lj-office-desk-crop-1600.jpg);
+    }
 }
 
 .home .content-wrapper {
@@ -158,7 +250,13 @@ nav[role="navigation"] {
 .content-bg {
     /*background: rgb(255 255 255 / 0.85);*/
     background: rgb(247 243 239 / 0.85);
-    padding: 30px;
+    padding: 20px;
+}
+
+@media screen and (min-width: 651px) {
+    .content-bg {
+        padding: 30px;
+    }
 }
 
 .profile-pic {
@@ -167,25 +265,27 @@ nav[role="navigation"] {
     justify-content: center;
 }
 
-@media screen and (max-width:650px) {
-    .home .content-wrapper {
-        padding: 10px;
-    }
-
-    .content-bg {
-        padding: 20px;
-    }
-}
-
 /* RESUME
 --------------------------------------------*/
 .resume header::before {
     /* background: url(../images/bg-home-office-studio.jpg) center; */
-    background: url(../images/smdp-rock-1-2600.jpg) center;
+    background: url(../images/smdp-rock-1-800.jpg) center;
     background-size: cover;
     content: "";
     display: block;
-    height: 375px;
+    height: 200px;
+}
+
+@media screen and (min-width: 601px) {
+    .resume header::before {
+        height: 375px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .resume header::before {
+        background-image: url(../images/smdp-rock-1-1600.jpg);
+    }
 }
 
 .resume-section {
@@ -195,35 +295,19 @@ nav[role="navigation"] {
     border-bottom: 2px dashed #d3d4d6;
 }
 
+.nav-has-download {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
 .download-link {
-    position: fixed;
-    top: 12px;
-    left: 10px;
     font-size: 1.5rem;
-    z-index: 200;
 }
 
-@media  screen and (max-width: 1350px) {
-    .download-link {
-        position: absolute;
-    }
-}
-
-@media  screen and (max-width: 600px) {
-    .resume header::before {
-        height: 200px;
-    }
-
-    h1 {
-        font-size: 5rem;
-    }
-
-    h2 {
-        font-size: 2.6rem;
-    }
-}
-
-/* Profile 
+/* Profile
 --------------------------------------------*/
 
 
@@ -234,7 +318,13 @@ nav[role="navigation"] {
     background-size: cover;
     content: "";
     display: block;
-    height: 375px;
+    height: 200px;
+}
+
+@media screen and (min-width: 601px) {
+    .projects header::before {
+        height: 375px;
+    }
 }
 
 .project-item {
@@ -381,28 +471,14 @@ footer {
     /* background: #222; */
     /* color: #d3d4d6; */
     color: #222222;
-    padding: 5px;
-    position: fixed;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-    z-index: 100;
+    text-align: center;
+    padding: 10px;
     /* display: inline-block; */
     /* vertical-align: middle; */
 }
 
 main {
-    padding-bottom: 160px;
-}
-
-@media screen and (min-width: 860px) {
-    main {
-        padding-bottom: 90px;
-    }
-}
-
-.myfooter {
-    border: 2px solid green;
+    padding-bottom: 40px;
 }
 
 footer p {
@@ -426,14 +502,8 @@ footer p {
     footer {
         display: flex;
         justify-content: space-between;
+        text-align: left;
         padding: 5px 20px;
-    }
-}
-
-@media screen and (max-width: 859px) {
-    footer {
-        text-align: center;
-        padding: 10px;
     }
 }
 
@@ -454,7 +524,13 @@ footer p {
     background-size: cover;
     content: "";
     display: block;
-    height: 375px;
+    height: 200px;
+}
+
+@media screen and (min-width: 601px) {
+    .skills header::before {
+        height: 375px;
+    }
 }
 
 .skills-table-wrapper {
@@ -495,6 +571,72 @@ footer p {
 .skills-table td:nth-child(2),
 .skills-table th:nth-child(2) {
     white-space: nowrap;
+}
+
+/* Below ~650px the dense 4-column table is hard to read, so each row
+   restacks into a card with CSS-generated field labels. Column order
+   is identical across all four skills tables, so a positional label
+   (nth-child) is safe without touching the markup. Native table
+   semantics are kept intact above the breakpoint. */
+@media screen and (max-width: 650px) {
+    .skills-table thead {
+        display: none;
+    }
+
+    .skills-table,
+    .skills-table tbody,
+    .skills-table tr,
+    .skills-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .skills-table tr {
+        margin-bottom: 16px;
+        padding: 12px;
+        border: 1px solid #d3d4d6;
+        border-radius: 6px;
+    }
+
+    .skills-table tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .skills-table td {
+        padding: 6px 0;
+        border-bottom: none;
+        white-space: normal;
+    }
+
+    .skills-table td:not(:last-child) {
+        border-bottom: 1px dashed #d3d4d6;
+    }
+
+    .skills-table td::before {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #3c8453;
+        margin-bottom: 2px;
+    }
+
+    .skills-table td:nth-child(1)::before {
+        content: "Skill / Tool";
+    }
+
+    .skills-table td:nth-child(2)::before {
+        content: "Experience";
+    }
+
+    .skills-table td:nth-child(3)::before {
+        content: "Main Activities / Evidence";
+    }
+
+    .skills-table td:nth-child(4)::before {
+        content: "Proficiency";
+    }
 }
 
 .proficiency {

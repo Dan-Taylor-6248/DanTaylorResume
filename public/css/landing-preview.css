@@ -1,0 +1,446 @@
+/* ============================================================
+   LANDING PAGE PREVIEW — stylesheet
+   Based on Resources/Landing Page 1.jpeg
+
+   This file is scoped entirely to landing-preview.html via the
+   "lp-" class prefix and does NOT touch styles.css, so nothing
+   here can affect index.html, resume.html, skills.html or
+   projects.html. Safe to edit freely while this page is WIP.
+
+   Sections below (search for these headers to jump around):
+     1. Variables (colors / fonts)          — tune the whole look here
+     2. Base / reset
+     3. WIP banner
+     4. Header / nav
+     5. Hero section
+     6. Buttons
+     7. Strategy section (dark)
+     8. Solutions diagram
+     9. Footer
+     10. Responsive
+   ============================================================ */
+
+/* 1. Variables
+   -------------------------------------------------------------- */
+.lp-page {
+    --lp-cream: #f7f3ef;
+    --lp-cream-soft: #efe9e1;
+    --lp-ink: #182b24;
+    --lp-ink-soft: #3d4a44;
+    --lp-muted: #7a877f;
+    --lp-dark-bg: #142019;
+    --lp-dark-bg-2: #0d1712;
+    --lp-orange: #d5691f;
+    --lp-orange-soft: #e2854a;
+    --lp-border: #d8cfc0;
+
+    --lp-font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+    --lp-font-body: "Lora", Georgia, serif;
+    --lp-font-ui: "Montserrat", "Open Sans", sans-serif;
+    --lp-font-script: "Caveat", cursive;
+}
+
+/* 2. Base / reset
+   -------------------------------------------------------------- */
+.lp-page {
+    background: var(--lp-cream);
+    color: var(--lp-ink-soft);
+    font-family: var(--lp-font-body);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.lp-page * {
+    box-sizing: border-box;
+}
+
+.lp-page img {
+    max-width: 100%;
+    display: block;
+}
+
+.lp-page a {
+    color: inherit;
+}
+
+/* 3. WIP banner — delete this whole block (and the markup it styles)
+   once the page is ready to go live */
+.lp-wip-banner {
+    background: #1c1c1c;
+    color: #f6f6f6;
+    font-family: var(--lp-font-ui);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 8px 16px;
+}
+
+.lp-wip-banner strong {
+    color: var(--lp-orange-soft);
+}
+
+/* 4. Header / nav
+   -------------------------------------------------------------- */
+.lp-header {
+    background: var(--lp-cream);
+    padding: 28px 5vw 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.lp-logo {
+    margin: 0;
+}
+
+.lp-logo-link {
+    text-decoration: none;
+    display: block;
+}
+
+.lp-logo-name {
+    font-family: var(--lp-font-display);
+    font-weight: 700;
+    font-size: 2.6rem;
+    letter-spacing: 0.12em;
+    color: var(--lp-ink);
+}
+
+.lp-logo-tagline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    font-family: var(--lp-font-ui);
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lp-ink-soft);
+}
+
+.lp-logo-tagline .lp-dash {
+    height: 1px;
+    width: 28px;
+    background: var(--lp-orange);
+    display: inline-block;
+}
+
+.lp-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.lp-nav a {
+    font-family: var(--lp-font-ui);
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--lp-ink-soft);
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.lp-nav a:hover {
+    color: var(--lp-ink);
+}
+
+.lp-nav a.lp-active {
+    color: var(--lp-ink);
+    border-bottom-color: var(--lp-orange);
+}
+
+/* 5. Hero section
+   -------------------------------------------------------------- */
+.lp-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 800px) {
+    .lp-hero {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+    }
+}
+
+.lp-hero-media {
+    min-height: 320px;
+    background-size: cover;
+    background-position: center 15%;
+}
+
+.lp-hero-copy {
+    padding: 60px 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 22px;
+}
+
+.lp-overline {
+    font-family: var(--lp-font-ui);
+    font-size: 1.2rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--lp-muted);
+    margin: 0;
+}
+
+.lp-hero-headline {
+    font-family: var(--lp-font-display);
+    font-weight: 700;
+    font-size: clamp(3.6rem, 6vw, 5.6rem);
+    line-height: 1.05;
+    color: var(--lp-ink);
+    margin: 0;
+}
+
+.lp-hero-headline .lp-underline-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.lp-hero-headline .lp-underline-wrap svg {
+    position: absolute;
+    left: -2%;
+    bottom: -0.2em;
+    width: 104%;
+    height: 0.3em;
+}
+
+.lp-hero-body {
+    max-width: 46ch;
+    font-size: 1.7rem;
+    line-height: 1.65;
+    color: var(--lp-ink-soft);
+    margin: 0;
+}
+
+.lp-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    margin-top: 10px;
+}
+
+/* 6. Buttons
+   -------------------------------------------------------------- */
+.lp-btn {
+    font-family: var(--lp-font-ui);
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.lp-btn-outline {
+    padding: 16px 28px;
+    border: 1.5px solid var(--lp-ink);
+    color: var(--lp-ink);
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lp-btn-outline:hover {
+    background: var(--lp-ink);
+    color: var(--lp-cream);
+}
+
+.lp-btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--lp-ink);
+    border-bottom: 2px solid var(--lp-orange);
+    padding-bottom: 3px;
+}
+
+.lp-btn-text:hover {
+    color: var(--lp-orange);
+}
+
+.lp-btn-text .lp-arrow-down {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* 7. Strategy section (dark)
+   -------------------------------------------------------------- */
+.lp-strategy {
+    position: relative;
+    color: var(--lp-cream);
+    padding: 90px 6vw 0;
+    background:
+        linear-gradient(to bottom, var(--lp-dark-bg) 0%, var(--lp-dark-bg) 52%, rgba(13, 23, 18, 0.25) 100%),
+        url("../images/smdp-bay-1-800.jpg") center bottom / cover no-repeat,
+        var(--lp-dark-bg);
+    overflow: hidden;
+}
+
+@media screen and (min-width: 800px) {
+    .lp-strategy {
+        background-image:
+            linear-gradient(to bottom, var(--lp-dark-bg) 0%, var(--lp-dark-bg) 52%, rgba(13, 23, 18, 0.25) 100%),
+            url("../images/smdp-bay-1-1600.jpg");
+    }
+}
+
+.lp-strategy-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+@media screen and (min-width: 900px) {
+    .lp-strategy-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.lp-strategy .lp-overline {
+    color: var(--lp-orange-soft);
+}
+
+.lp-strategy-headline {
+    font-family: var(--lp-font-display);
+    font-weight: 700;
+    font-size: clamp(3.2rem, 5vw, 4.6rem);
+    line-height: 1.1;
+    color: var(--lp-cream);
+    margin: 16px 0 0;
+}
+
+.lp-strategy-headline .lp-underline-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.lp-strategy-headline .lp-underline-wrap svg {
+    position: absolute;
+    left: -2%;
+    bottom: -0.18em;
+    width: 104%;
+    height: 0.28em;
+}
+
+.lp-strategy-body {
+    margin-top: 26px;
+    max-width: 52ch;
+}
+
+.lp-strategy-body p {
+    font-size: 1.7rem;
+    line-height: 1.7;
+    color: #dfe6e1;
+}
+
+/* 8. Solutions diagram
+   -------------------------------------------------------------- */
+.lp-diagram {
+    width: 100%;
+    height: auto;
+    justify-self: center;
+}
+
+.lp-diagram-label {
+    font-family: var(--lp-font-script);
+    font-size: 26px;
+    fill: var(--lp-cream);
+}
+
+.lp-diagram-center-label {
+    font-family: var(--lp-font-ui);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    fill: var(--lp-orange-soft);
+}
+
+.lp-diagram-arrow {
+    stroke: rgba(247, 243, 239, 0.75);
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.lp-diagram-circle {
+    fill: rgba(213, 105, 31, 0.08);
+    stroke: var(--lp-orange);
+    stroke-width: 2.5;
+}
+
+/* 9. Footer
+   -------------------------------------------------------------- */
+.lp-footer {
+    background: var(--lp-dark-bg-2);
+    color: #b9c2bc;
+    font-family: var(--lp-font-ui);
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+    padding: 22px 6vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lp-footer a {
+    color: #b9c2bc;
+    text-decoration: none;
+}
+
+.lp-footer a:hover {
+    color: var(--lp-orange-soft);
+}
+
+.lp-footer-socials img {
+    width: 22px;
+    filter: grayscale(1) brightness(1.6);
+}
+
+.lp-footer-socials img:hover {
+    filter: none;
+}
+
+/* 10. Responsive
+   -------------------------------------------------------------- */
+@media screen and (max-width: 650px) {
+    .lp-header {
+        padding: 22px 5vw 16px;
+    }
+
+    .lp-nav {
+        gap: 16px 22px;
+    }
+
+    .lp-hero-media {
+        min-height: 260px;
+    }
+
+    .lp-hero-copy {
+        padding: 44px 6vw;
+    }
+
+    .lp-strategy {
+        padding-top: 60px;
+    }
+
+    .lp-footer {
+        justify-content: center;
+        text-align: center;
+    }
+}

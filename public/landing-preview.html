@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dan Taylor | Landing Page Preview (WIP)</title>
+
+    <!--
+      LANDING PAGE PREVIEW
+      =====================
+      Built from Resources/Landing Page 1.jpeg. This page is a standalone
+      draft of a possible new home page — it is NOT linked from the live
+      site's nav and does not replace index.html. Open it directly at
+      /landing-preview.html to review.
+
+      Pieces, so each is easy to update independently:
+        - Styles:  css/landing-preview.css  (scoped to .lp-page, won't
+                    affect any other page)
+        - Diagram: the inline <svg class="lp-diagram"> block near the
+                    bottom of this file (search "SOLUTIONS DIAGRAM")
+        - Photos:  placeholders from the existing /images library, noted
+                    inline below — swap for real photography before launch
+        - Copy:    each section's text sits right in its markup, ready to
+                    edit in place
+
+      When ready to go live: rename this file to index.html (after saving
+      a backup of the current one, as with the existing *_back.html
+      files), add it to the nav on the other pages, and delete the WIP
+      banner block below.
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400..600;1,400..600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/landing-preview.css">
+  </head>
+  <body class="lp-page">
+
+    <!-- WIP banner — remove this block before launch -->
+    <div class="lp-wip-banner">
+      <strong>Preview / Work in progress</strong> — not linked from the live site yet.
+    </div>
+
+    <!-- ============================================================
+         HEADER / NAV
+         ============================================================ -->
+    <header class="lp-header">
+      <p class="lp-logo">
+        <a class="lp-logo-link" href="landing-preview.html">
+          <span class="lp-logo-name">DAN TAYLOR</span>
+          <span class="lp-logo-tagline">
+            <span class="lp-dash" aria-hidden="true"></span>
+            Simplify. Align. Deliver.
+            <span class="lp-dash" aria-hidden="true"></span>
+          </span>
+        </a>
+      </p>
+      <nav role="navigation" aria-label="main menu">
+        <ul class="lp-nav">
+          <li><a class="lp-active" href="landing-preview.html">Home</a></li>
+          <li><a href="#strategy">About</a></li>
+          <li><a href="resume.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="#lp-footer">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="lp-hero">
+      <!-- Placeholder photo: swap for a candid outdoor portrait like the
+           mockup once available. Using the existing headshot for now. -->
+      <div class="lp-hero-media" style="background-image: url('images/Dan-Photo-Window.png')" role="img" aria-label="Portrait of Dan Taylor"></div>
+
+      <div class="lp-hero-copy">
+        <p class="lp-overline">Enterprise Applications,<br>Product &amp; Solution Delivery</p>
+
+        <h1 class="lp-hero-headline">
+          Complexity<br>
+          into
+          <span class="lp-underline-wrap">Progress.
+            <svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 12 Q 40 3, 80 10 T 160 8 T 240 12 T 298 6" stroke="#d5691f" stroke-width="6" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+        </h1>
+
+        <p class="lp-hero-body">
+          I work at the intersection of business and technology — understanding what isn't working, bringing the right people and systems together, and getting solutions delivered.
+        </p>
+
+        <div class="lp-hero-actions">
+          <a class="lp-btn lp-btn-outline" href="projects.html">Explore My Work</a>
+          <a class="lp-btn lp-btn-text" href="daniel-taylor-resume.pdf" download>
+            Download Résumé
+            <span class="lp-arrow-down" aria-hidden="true">&#8595;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STRATEGY SECTION (dark)
+         ============================================================ -->
+    <section class="lp-strategy" id="strategy">
+      <div class="lp-strategy-inner">
+        <div class="lp-strategy-copy">
+          <p class="lp-overline">Strategy Meets Reality</p>
+          <h2 class="lp-strategy-headline">
+            Some problems need
+            <span class="lp-underline-wrap">more than a playbook.
+              <svg viewBox="0 0 340 20" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M2 10 Q 45 2, 90 9 T 180 7 T 270 11 T 338 5" stroke="#d5691f" stroke-width="6" stroke-linecap="round" fill="none"/>
+              </svg>
+            </span>
+          </h2>
+
+          <div class="lp-strategy-body">
+            <p>Throughout my career, I've been asked to step into unfamiliar technologies, complicated business environments and initiatives that weren't going according to plan.</p>
+            <p>I learn quickly, find the real problem, align the right people and take ownership until it's working.</p>
+          </div>
+        </div>
+
+        <!-- SOLUTIONS DIAGRAM — self-contained; edit labels/positions here
+             without touching anything else on the page. -->
+        <svg class="lp-diagram" viewBox="0 0 520 520" role="img" aria-label="Diagram: Solutions at the center, connected to Business Objectives, Technology and Data, People and Teams, Processes and Governance, Vendors and Partners, and Real-world Constraints">
+          <defs>
+            <marker id="lp-tick-a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M1,1 L4,4 L1,7" class="lp-diagram-arrow"/>
+            </marker>
+            <marker id="lp-tick-b" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+              <path d="M1,1 L4,4 L1,7" class="lp-diagram-arrow"/>
+            </marker>
+          </defs>
+
+          <!-- connector lines -->
+          <line class="lp-diagram-arrow" x1="260" y1="176" x2="260" y2="112" marker-start="url(#lp-tick-a)" marker-end="url(#lp-tick-b)"/>
+          <line class="lp-diagram-arrow" x1="333" y1="218" x2="388" y2="186" marker-start="url(#lp-tick-a)" marker-end="url(#lp-tick-b)"/>
+          <line class="lp-diagram-arrow" x1="333" y1="302" x2="388" y2="334" marker-start="url(#lp-tick-a)" marker-end="url(#lp-tick-b)"/>
+          <line class="lp-diagram-arrow" x1="260" y1="344" x2="260" y2="408" marker-start="url(#lp-tick-a)" marker-end="url(#lp-tick-b)"/>
+          <line class="lp-diagram-arrow" x1="187" y1="302" x2="132" y2="334" marker-start="url(#lp-tick-a)" marker-end="url(#lp-tick-b)"/>
+          <line class="lp-diagram-arrow" x1="187" y1="218" x2="132" y2="186" marker-start="url(#lp-tick-a)" marker-end="url(#lp-tick-b)"/>
+
+          <!-- center -->
+          <circle class="lp-diagram-circle" cx="260" cy="260" r="78"/>
+          <text class="lp-diagram-center-label" x="260" y="266" text-anchor="middle">SOLUTIONS</text>
+
+          <!-- labels -->
+          <text class="lp-diagram-label" x="260" y="80" text-anchor="middle" transform="rotate(-4 260 80)">
+            <tspan x="260" dy="0">Business</tspan>
+            <tspan x="260" dy="28">Objectives</tspan>
+          </text>
+
+          <text class="lp-diagram-label" x="412" y="168" text-anchor="start" transform="rotate(14 412 168)">
+            <tspan x="412" dy="0">Technology</tspan>
+            <tspan x="412" dy="28">&amp; Data</tspan>
+          </text>
+
+          <text class="lp-diagram-label" x="412" y="352" text-anchor="start" transform="rotate(-10 412 352)">
+            People &amp; Teams
+          </text>
+
+          <text class="lp-diagram-label" x="260" y="452" text-anchor="middle" transform="rotate(6 260 452)">
+            <tspan x="260" dy="0">Processes</tspan>
+            <tspan x="260" dy="28">&amp; Governance</tspan>
+          </text>
+
+          <text class="lp-diagram-label" x="108" y="352" text-anchor="end" transform="rotate(12 108 352)">
+            <tspan x="108" dy="0">Vendors</tspan>
+            <tspan x="108" dy="28">&amp; Partners</tspan>
+          </text>
+
+          <text class="lp-diagram-label" x="108" y="168" text-anchor="end" transform="rotate(-14 108 168)">
+            <tspan x="108" dy="0">Real-world</tspan>
+            <tspan x="108" dy="28">Constraints</tspan>
+          </text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="lp-footer" id="lp-footer">
+      <p>&copy; 2026 by Dan Taylor | <a href="mailto:dantaylor6248@gmail.com">dantaylor6248@gmail.com</a></p>
+      <p class="lp-footer-socials">
+        <a href="https://www.linkedin.com/in/daniel-taylor-65a42937" target="_blank" rel="noopener"><img src="images/icon-logo-linkedin.png" alt="LinkedIn"></a>
+      </p>
+    </footer>
+  </body>
+</html>
