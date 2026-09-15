@@ -63,20 +63,41 @@ app.http('chat', {
         }),
       });
 
+      const debugAuthorized = request.headers.get('x-debug-key') === apiKey;
+
       if (!response.ok) {
         const errText = await response.text();
         context.error('Azure OpenAI error', response.status, errText);
-        return { status: 502, jsonBody: { error: 'The assistant is temporarily unavailable' } };
+        return {
+          status: 502,
+          jsonBody: {
+            error: 'The assistant is temporarily unavailable',
+            ...(debugAuthorized ? { debug: { status: response.status, body: errText, url } } : {}),
+          },
+        };
       }
 
       const data = await response.json();
       reply = data.choices?.[0]?.message?.content?.trim();
       if (!reply) {
-        return { status: 502, jsonBody: { error: 'The assistant is temporarily unavailable' } };
+        return {
+          status: 502,
+          jsonBody: {
+            error: 'The assistant is temporarily unavailable',
+            ...(debugAuthorized ? { debug: { data } } : {}),
+          },
+        };
       }
     } catch (err) {
       context.error('Azure OpenAI request failed', err);
-      return { status: 502, jsonBody: { error: 'The assistant is temporarily unavailable' } };
+      const debugAuthorized = request.headers.get('x-debug-key') === apiKey;
+      return {
+        status: 502,
+        jsonBody: {
+          error: 'The assistant is temporarily unavailable',
+          ...(debugAuthorized ? { debug: { message: err.message, url } } : {}),
+        },
+      };
     }
 
     const fullHistory = [...history, { role: 'assistant', content: reply }];
