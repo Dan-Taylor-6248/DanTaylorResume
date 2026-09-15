@@ -89,6 +89,8 @@ nav[role="navigation"] {
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
+    border-bottom: 2px solid #3c8453;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .navbar {
@@ -473,6 +475,8 @@ footer {
     color: #222222;
     text-align: center;
     padding: 10px;
+    border-top: 2px solid #3c8453;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.06);
     /* display: inline-block; */
     /* vertical-align: middle; */
 }
